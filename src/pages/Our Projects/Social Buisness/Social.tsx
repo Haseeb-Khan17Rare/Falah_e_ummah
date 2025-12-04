@@ -6,7 +6,6 @@ import {
   FaUsers, 
   FaCheckCircle, 
   FaSyncAlt, 
-  FaClipboardCheck, 
   FaMoneyBillWave,
   FaUtensils 
 } from "react-icons/fa";
