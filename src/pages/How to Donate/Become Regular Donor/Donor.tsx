@@ -7,10 +7,8 @@ import {
   FaGlobe, 
   FaMoneyBillWave, 
   FaRedo, 
-  FaCreditCard, 
-  FaCheckCircle, 
+  FaCreditCard,  
   FaCommentAlt, 
-  FaBuilding, 
   FaCalendarAlt,
   FaBell 
 } from 'react-icons/fa';

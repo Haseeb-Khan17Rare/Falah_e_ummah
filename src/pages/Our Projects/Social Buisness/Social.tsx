@@ -84,16 +84,21 @@ const SocialBusinessDifferent: React.FC = () => {
                 <p className="text-sm font-semibold text-red-700 uppercase tracking-wider mb-2">Business Scope</p>
                 <h3 className="text-3xl font-extrabold text-gray-900 mb-4">Viable Micro-Enterprise Models</h3>
                 <ul className="space-y-2 text-gray-700">
-                    {businessTypes.slice(0, 3).map((type, idx) => (
+                  {businessTypes.slice(0, 3).map((type, idx) => {
+                    const Icon = businessIcons[type.icon as keyof typeof businessIcons] || FaStore; // Ensure TS type safety
+                    return (
                       <li key={idx} className="flex items-start">
-                        <FaStore className="text-red-600 text-md mr-3 mt-1 flex-shrink-0" />
+                        <Icon className="text-red-600 text-md mr-3 mt-1 flex-shrink-0" />
                         <span className="font-medium">{type.name}</span>
                       </li>
-                    ))}
-                    <li className="flex items-start">
-                        <FaCheckCircle className="text-red-600 text-md mr-3 mt-1 flex-shrink-0" />
-                        <span className="italic text-sm">And other practical, income-generating ideas suited to local needs...</span>
-                    </li>
+                    );
+                  })}
+                  <li className="flex items-start">
+                    <FaCheckCircle className="text-red-600 text-md mr-3 mt-1 flex-shrink-0" />
+                    <span className="italic text-sm">
+                      And other practical, income-generating ideas suited to local needs...
+                    </span>
+                  </li>
                 </ul>
             </div>
         </div>

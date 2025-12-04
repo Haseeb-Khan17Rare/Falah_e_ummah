@@ -46,21 +46,23 @@ const BloodDonation: React.FC = () => {
             Rapid Response Protocol
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {driveFeatures.map((feature, idx) => (
-              <div
-                key={idx}
-                className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-200 hover:border-red-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
-              >
-                <div className="flex justify-between items-center mb-3">
-                  <div className="text-4xl text-red-700 bg-red-100 p-3 rounded-full flex-shrink-0">
-                    <feature.icon />
+          {driveFeatures.map((feature, idx) => {
+                const Icon = feature.icon; // <-- THIS LINE is required
+
+                return (
+                  <div key={idx} className="bg-white p-6 rounded-xl shadow-lg border-t-4 border-red-200 hover:border-red-700 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1">
+                    <div className="flex justify-between items-center mb-3">
+                      <div className="text-4xl text-red-700 bg-red-100 p-3 rounded-full flex-shrink-0">
+                        <Icon /> {/* use capitalized Icon here */}
+                      </div>
+                      <span className="text-3xl font-extrabold text-gray-300 opacity-75">{idx + 1}</span>
+                    </div>
+                    <h4 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h4>
+                    <p className="text-gray-600 text-sm">{feature.description}</p>
                   </div>
-                  <span className="text-3xl font-extrabold text-gray-300 opacity-75">{idx + 1}</span>
-                </div>
-                <h4 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h4>
-                <p className="text-gray-600 text-sm">{feature.description}</p>
-              </div>
-            ))}
+                );
+              })}
+
           </div>
         </div>
 

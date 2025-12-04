@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function CareersSection() {
   return (
     <div className="bg-gray-50 text-gray-800">

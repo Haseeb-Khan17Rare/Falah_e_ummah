@@ -6,7 +6,6 @@ import {
   FaTwitter,
   FaInstagram,
   FaPinterestP,
-  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const Footer: FC = () => {
