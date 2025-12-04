@@ -1,9 +1,10 @@
 import PresidentMsg from "../PresidentMsg/PresidentMsg";
 
 const founders = [
-    { name: "Founder 1", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { name: "Founder 2", img: "https://randomuser.me/api/portraits/men/32.jpg" },
-    { name: "Founder 3", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { name: "Dr Hammad Naeem ", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { name: "Engr. Usama khan ", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { name: "Dr. shahzeb Satti", img: "https://randomuser.me/api/portraits/men/32.jpg" },
+    { name: "Dr. Umer zeb Shah", img: "https://randomuser.me/api/portraits/men/32.jpg" },
   ];
   
   const FounderMembers = () => {

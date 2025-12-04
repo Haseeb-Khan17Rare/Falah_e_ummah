@@ -1,124 +1,75 @@
 import type { FC } from "react";
 import {
+  FaEnvelope,
+  FaPhoneAlt,
   FaFacebookF,
   FaTwitter,
   FaInstagram,
   FaPinterestP,
-  FaCheckCircle,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
 
 const Footer: FC = () => {
   return (
-    <footer
-      className="relative text-white bg-cover bg-center"
+    <section
+      className="relative text-white bg-cover bg-center py-20"
       style={{
         backgroundImage: `url('/your-image.jpg')`,
       }}
     >
-      <div className="bg-black/70 w-full h-full">
-        <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="bg-black/70 w-full h-full py-16 px-6">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
 
-          {/* ----- LOGO + TEXT ----- */}
+          {/* ---------- LEFT : CONTACT INFO ----------- */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <img src="/logo.png" alt="Charity Hand" className="h-10" />
-              <span className="text-2xl font-bold">
-                Charity <span className="text-red-400">Hand</span>
-              </span>
-            </div>
+            <h2 className="text-3xl font-bold mb-4">
+              CONTACT <span className="text-red-400">US</span>
+            </h2>
 
-            <p className="text-gray-300 text-sm leading-relaxed">
-              Lorem ipsum dolor sit amet, nulla fermentum, mollis ac lectus nulla,
-              vel neque, risus non nunc dis lectus, ac id porttitor vulputate donec
-              sed. Et commodo, turpis porttitor ligula maecenas luctus lorem. Lobortis.
+            <p className="text-gray-300 mb-6 max-w-md">
+              Feel free to reach out for any inquiries, support, or collaboration.
+              We’re always here to help.
             </p>
 
-            {/* Social Icons */}
-            <div className="flex gap-4 mt-6 text-xl">
-              <FaFacebookF className="hover:text-red-400 cursor-pointer" />
-              <FaTwitter className="hover:text-red-400 cursor-pointer" />
-              <FaInstagram className="hover:text-red-400 cursor-pointer" />
-              <FaPinterestP className="hover:text-red-400 cursor-pointer" />
-            </div>
-          </div>
+            <ul className="space-y-4 text-gray-300 text-lg">
 
-          {/* ----- QUICK LINKS ----- */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">QUICK LINKS</h3>
+              {/* Email */}
+              <li className="flex items-center gap-3">
+                <FaEnvelope className="text-red-400 text-2xl" />
+                <span>contact@charityhand.org</span>
+              </li>
 
-            <ul className="space-y-3 text-sm">
-              <li className="flex items-center gap-2">
-                <FaCheckCircle className="text-red-400" /> Support Forums
+              {/* Phone */}
+              <li className="flex items-center gap-3">
+                <FaPhoneAlt className="text-red-400 text-2xl" />
+                <span>+1 234 567 890</span>
               </li>
-              <li className="flex items-center gap-2">
-                <FaCheckCircle className="text-red-400" /> Faq & Help Center
-              </li>
-              <li className="flex items-center gap-2">
-                <FaCheckCircle className="text-red-400" /> About Us
-              </li>
-              <li className="flex items-center gap-2">
-                <FaCheckCircle className="text-red-400" /> Register And Account
-              </li>
-              <li className="flex items-center gap-2">
-                <FaCheckCircle className="text-red-400" /> Service And Help
+
+              {/* Social Icons */}
+              <li className="mt-6 flex gap-4 text-xl">
+                <FaFacebookF className="hover:text-red-400 cursor-pointer" />
+                <FaTwitter className="hover:text-red-400 cursor-pointer" />
+                <FaInstagram className="hover:text-red-400 cursor-pointer" />
+                <FaPinterestP className="hover:text-red-400 cursor-pointer" />
               </li>
             </ul>
           </div>
 
-          {/* ----- OFFICE INFO ----- */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">OFFICE INFO</h3>
-
-            <ul className="space-y-3 text-sm">
-              <li>
-                Monday To Friday 10:00 AM To 07:00 PM
-              </li>
-              <li>Closed</li>
-              <li>All Sunday</li>
-              <li>All Branch Of Company</li>
-            </ul>
-          </div>
-
-          {/* ----- NEWSLETTER ----- */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">NEWSLETTER</h3>
-            <p className="text-sm text-gray-300 mb-4">
-              Sign up for our mailing list to get latest updates and offers
-            </p>
-
-            <div className="flex bg-white rounded overflow-hidden">
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full px-4 py-2 text-black outline-none"
-              />
-              <button className="bg-red-500 px-6 text-white font-semibold hover:bg-red-600">
-                Go
-              </button>
-            </div>
-
-            <p className="text-xs text-gray-400 mt-3">
-              We respect your advice
-            </p>
+          {/* ---------- RIGHT : GOOGLE MAP ----------- */}
+          <div className="rounded-lg overflow-hidden shadow-lg">
+            <iframe
+              title="Google Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434510502!2d144.95373531531532!3d-37.8162797420136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad65d43f1df1afd%3A0xa784a2dacf7d1cf0!2sVictoria%20State%20Library!5e0!3m2!1sen!2sus!4v1633959085692!5m2!1sen!2sus"
+              width="100%"
+              height="350"
+              style={{ border: 0 }}
+              loading="lazy"
+              allowFullScreen
+            ></iframe>
           </div>
         </div>
-
-        {/* ----- COPYRIGHT ----- */}
-        <div className="border-t border-white/20 py-4 mt-10 text-center text-sm text-gray-300">
-          © 2025 <span className="text-red-400">ThemeEarth</span>,
-          Designed by <span className="text-red-400">Istiyak Ahmed</span>
-        </div>
-
-        {/* Scroll-To-Top Button */}
-        <button
-          className="fixed bottom-6 right-6 bg-red-500 text-white w-10 h-10 flex items-center justify-center rounded-full shadow-xl hover:bg-green-600"
-          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-        >
-          ↑
-        </button>
-
       </div>
-    </footer>
+    </section>
   );
 };
 

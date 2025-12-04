@@ -1,37 +1,83 @@
+import Umar from './Umar.jpeg'
+import Shehzad from './Shehzad.jpeg'
+import Aqib from './Aqib.jpeg'
+import Asim from './Asim.jpeg'
+import Hammad from './Hammad.jpeg'
+import Shahzeb from './Shahzeb.jpeg'
+import Usama from './Usama.jpeg'
+import Shabir from './Shabir.jpeg'
+import Syed from './Syed.jpeg'
+import Usman from './Usman.jpeg'
+import Abdulwasay from './Abdul.jpeg'
+
 import Founders from '../Founders/Founders'
 
 import { FaFacebookF, FaTwitter, FaInstagram, FaPinterestP } from "react-icons/fa";
 
 const volunteers = [
   {
-    name: "ISTIAK AHMED",
-    role: "Volunteer",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Usama Khan Baber ",
+    role: "Vice President",
+    img: Usama,
   },
   {
-    name: "ISTIAK AHMED",
-    role: "Volunteer",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Shahzeb ",
+    role: "Co-President",
+    img: Shahzeb,
   },
   {
-    name: "ISTIAK AHMED",
-    role: "Volunteer",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Muhammad Hammad ",
+    role: "President ",
+    img: Hammad,
   },
   {
-    name: "ISTIAK AHMED",
-    role: "Volunteer",
-    img: "https://randomuser.me/api/portraits/men/32.jpg",
+    name: "Shabir Hussain Shah ",
+    role: "Chairman",
+    img: Shabir,
   },
-];
-
+  {
+    name: "Muhammad Asim",
+    role: "Vice Chairman ",
+    img: Asim,
+  },
+  {
+    name: "Syed Umerzaib Shah",
+    role: "Vice Chairman ",
+    img: Syed,
+  },
+  {
+    name: "Umar Jahangir ",
+    role: "Finance Secretary ",
+    img: Umar,
+  },
+  {
+    name: "Shehzad Ahmed ",
+    role: "Vice Chairman ",
+    img: Shehzad,
+  },
+  {
+    name: "Abdul Waseh ",
+    role: "Co Finance Secretary  ",
+    img: Abdulwasay,
+  },
+  {
+    name: "Muhammad Aqib ",
+    role: "Press Secretary   ",
+    img: Aqib,
+  },
+  {
+    name: "Usman Bashir  ",
+    role: "Office Secretary ",
+    img: Usman,
+  },
+]; 
 const Volunteers = () => {
   return (
     <>
     <section className="py-20 text-center">
       {/* Title */}
       <h2 className="text-3xl md:text-4xl font-bold uppercase">
-        MEET OUR Team
+        MEET OUR Team 
       </h2>
 
       {/* Green underline */}
