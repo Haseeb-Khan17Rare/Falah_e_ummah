@@ -1,5 +1,7 @@
 import { FaCheckCircle, FaLaptopCode, FaPalette, FaMobileAlt, FaDesktop, FaBookOpen } from "react-icons/fa";
 
+
+
 // Mapping emojis to professional React Icons for visual consistency
 const courseIcons = {
   "💻": FaLaptopCode,
@@ -8,9 +10,9 @@ const courseIcons = {
   "🖥️": FaDesktop,
   "📘": FaBookOpen,
 };
-
+type CourseIconKey = keyof typeof courseIcons;
 const Education = () => {
-  const courses = [
+  const courses: { title: string; icon: CourseIconKey; description: string }[] = [
     { title: "Basic Computer Skills", icon: "💻", description: "Foundational digital literacy and software proficiency for the workplace." },
     { title: "Graphic Design", icon: "🎨", description: "Mastery of visual communication tools to create compelling branding and marketing assets." },
     { title: "Online Marketing & Social Media", icon: "📱", description: "Strategies for digital engagement, content creation, and market expansion." },
@@ -71,7 +73,7 @@ const Education = () => {
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {courses.map((course, idx) => {
-              const IconComponent = courseIcons[course.icon as keyof typeof courseIcons];
+              const IconComponent = courseIcons[course.icon as CourseIconKey];
               return (
                 <div
                   key={idx}
