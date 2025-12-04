@@ -1,5 +1,5 @@
 import React from "react";
-import { FaTint, FaDatabase, FaHospital, FaClock, FaHeartbeat, FaSearch, FaHandHoldingHeart } from "react-icons/fa";
+import { FaTint, FaDatabase, FaHospital, FaClock, FaHeartbeat, FaHandHoldingHeart } from "react-icons/fa";
 
 const BloodDonation: React.FC = () => {
   const driveFeatures = [
