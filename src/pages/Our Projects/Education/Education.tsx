@@ -1,16 +1,18 @@
 import { FaCheckCircle, FaLaptopCode, FaPalette, FaMobileAlt, FaDesktop, FaBookOpen } from "react-icons/fa";
-
+import type { IconType } from "react-icons";
 
 
 // Mapping emojis to professional React Icons for visual consistency
-const courseIcons = {
+const courseIcons: Record<string, IconType> = {
   "💻": FaLaptopCode,
   "🎨": FaPalette,
   "📱": FaMobileAlt,
   "🖥️": FaDesktop,
   "📘": FaBookOpen,
 };
+
 type CourseIconKey = keyof typeof courseIcons;
+
 const Education = () => {
   const courses: { title: string; icon: CourseIconKey; description: string }[] = [
     { title: "Basic Computer Skills", icon: "💻", description: "Foundational digital literacy and software proficiency for the workplace." },
@@ -28,18 +30,23 @@ const Education = () => {
     "Breaking the cycle of unemployment and creating <strong>sustainable, long-term income</strong> opportunities.",
   ];
 
+  // Helper function to safely get the icon component
+  const getCourseIcon = (icon: CourseIconKey) => courseIcons[icon];
+
   return (
     <section className="py-20 bg-gradient-to-br from-slate-50 via-white to-indigo-50 relative overflow-hidden">
       {/* Subtle background pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute inset-0" style={{
-          backgroundImage: 'radial-gradient(circle at 2px 2px, rgb(99, 102, 241) 1px, transparent 0)',
-          backgroundSize: '40px 40px'
-        }}></div>
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: 'radial-gradient(circle at 2px 2px, rgb(99, 102, 241) 1px, transparent 0)',
+            backgroundSize: '40px 40px',
+          }}
+        ></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        
         {/* Main Heading & Project Overview */}
         <div className="text-center mb-20">
           <div className="inline-block mb-4">
@@ -72,11 +79,11 @@ const Education = () => {
             Industry-aligned programs designed to build real-world skills and open doors to meaningful careers
           </p>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {courses.map((course, idx) => {
-              const IconComponent = courseIcons[course.icon as CourseIconKey];
+            {courses.map((course) => {
+              const IconComponent = getCourseIcon(course.icon);
               return (
                 <div
-                  key={idx}
+                  key={course.title}
                   className="group bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-2xl hover:border-red-200 transition-all duration-300 transform hover:-translate-y-1"
                 >
                   <div className="mb-5">
@@ -94,9 +101,9 @@ const Education = () => {
           </div>
         </div>
 
-        {/* Impact & Why it Matters Section - Split Content */}
+        {/* Impact & Why it Matters Section */}
         <div className="grid lg:grid-cols-2 gap-12 items-center bg-white p-10 lg:p-16 rounded-3xl shadow-xl border border-gray-100">
-          {/* Left Column: Image/Illustration */}
+          {/* Left Column: Image */}
           <div className="flex justify-center order-2 lg:order-1">
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-red-400 to-purple-500 rounded-2xl transform rotate-3 opacity-20"></div>
@@ -108,7 +115,7 @@ const Education = () => {
             </div>
           </div>
 
-          {/* Right Column: Benefits List */}
+          {/* Right Column: Benefits */}
           <div className="order-1 lg:order-2">
             <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
               Driving Long-Term Socio-Economic Impact
@@ -116,7 +123,10 @@ const Education = () => {
             <p className="text-gray-500 mb-8">Measurable outcomes that transform lives and communities</p>
             <div className="space-y-4">
               {benefits.map((benefit, idx) => (
-                <div key={idx} className="flex items-start gap-4 p-5 bg-gradient-to-r from-red-50 to-transparent rounded-xl hover:from-red-100 transition-colors duration-300">
+                <div
+                  key={idx}
+                  className="flex items-start gap-4 p-5 bg-gradient-to-r from-red-50 to-transparent rounded-xl hover:from-red-100 transition-colors duration-300"
+                >
                   <div className="flex-shrink-0 w-6 h-6 rounded-full bg-red-600 flex items-center justify-center mt-0.5">
                     <FaCheckCircle className="text-white text-sm" />
                   </div>
@@ -126,8 +136,8 @@ const Education = () => {
             </div>
           </div>
         </div>
-        
-        {/* Call to Action/Closing Statement */}
+
+        {/* Call to Action */}
         <div className="mt-20 text-center">
           <div className="max-w-4xl mx-auto bg-gradient-to-r from-red-600 to-red-300 p-12 rounded-3xl shadow-2xl">
             <h4 className="text-3xl font-bold text-white mb-4">
