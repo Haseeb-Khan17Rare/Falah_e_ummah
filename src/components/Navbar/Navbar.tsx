@@ -1,130 +1,163 @@
-  import { useState } from "react";
-  import Logo from "./Logo.jpeg";
-  import {
-    FaFacebookF,
-    FaTwitter,
-    FaInstagram,
-    FaPinterestP,
-    FaSearch,
-  } from "react-icons/fa";
-  import { HiOutlineMail } from "react-icons/hi";
+import { useState } from "react";
+import { Link } from "react-router-dom"; // <-- import Link
+import Logo from "./Logo.jpeg";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaPinterestP,
+  FaSearch,
+} from "react-icons/fa";
+import { HiOutlineMail } from "react-icons/hi";
 
-  const Navbar = () => {
-    const [open, setOpen] = useState<boolean>(false);
-    const [dropdown, setDropdown] = useState<number | null>(null);
-    const menuItems = [
-      {
-        label: "Home",
-        dropdown: [],
-      },
-      {
-        label: "About Us",
-        dropdown: ["Vision","Mission", "History","Careers (paid roles)","Volunteer (info + volunteer form)","Partner With Us","Standards & Codes of Conduct","Contact Us","Feedback Form"],
-      },
-      {
-        label: "Our Projects",
-        dropdown: ["Social Business Project", "Dastakari Project", "Education Project", "Health Camps","Blood Donation Drive","Winter Drive","Natural Disaster Relief","Ramadan Projects"],
-      },
-      {
-        label: "Stories",
-        dropdown: ["Live Impact Tracker", "Blogs", "Stories of people whose lives have changed","Volunteer Experiences"],
-      },
-      {
-        label: "How To Donate",
-        dropdown: ["Bank Account Details", "Become a Regular Donor", "Sponsor an Orphan","Sponsor a Project"],
-      },
-      {
-        label: "Contact Us",
-        dropdown: [],
-      },
-    ];
+const Navbar = () => {
+  const [open, setOpen] = useState<boolean>(false);
+  const [dropdown, setDropdown] = useState<number | null>(null);
 
-    return (
-      <div className="w-full shadow-md relative">
-        {/* TOP BAR */}
-        <div className="w-full bg-red-600 text-sm border-b hidden md:flex justify-between items-center px-6 py-2">
-          <div className="flex items-center gap-2 text-white">
-            <HiOutlineMail size={18} />
-            <span>falaheummat2020@gmail.com</span>
-          </div>
+  const menuItems = [
+    { label: "Home", path: "/", dropdown: [] },
+    {
+      label: "About Us",
+      path: "/about",
+      dropdown: [
+        { label: "About", path: "/About" },
+        { label: "Vision", path: "/vision" },
+        { label: "Mission", path: "/mission" },
+        { label: "History", path: "/history" },
+        { label: "Careers (paid roles)", path: "/Career" },
+        { label: "Volunteer (info + volunteer form)", path: "/volunteer" },
+        { label: "Partner With Us", path: "/partner" },
+        { label: "Standards & Codes of Conduct", path: "/standards" },
+        { label: "Feedback Form", path: "/feedback" },
+      ],
+    },
+    {
+      label: "Our Projects",
+      path: "/projects",
+      dropdown: [
+        { label: "Social Business Project", path: "/social" },
+        { label: "Dastkari Project", path: "/Dastkari" },
+        { label: "Education Project", path: "/education" },
+        { label: "Health Camps", path: "/health" },
+        { label: "Blood Donation Drive", path: "/blood" },
+        { label: "Winter Drive", path: "/winter" },
+        { label: "Natural Disaster Relief", path: "/Natural" },
+        { label: "Ramadan Projects", path: "/ramadan" },
+      ],
+    },
+    {
+      label: "Stories",
+      path: "/stories",
+      dropdown: [
+        { label: "Live Impact Tracker", path: "/stories/impact" },
+        { label: "Blogs", path: "/stories/blogs" },
+        { label: "Stories of people whose lives have changed", path: "/stories/lives" },
+        { label: "Volunteer Experiences", path: "/stories/volunteer" },
+      ],
+    },
+    {
+      label: "How To Donate",
+      path: "/donate",
+      dropdown: [
+        { label: "Bank Account Details", path: "/Bank" },
+        { label: "Become a Regular Donor", path: "/Donor" },
+        { label: "Sponsor an Orphan", path: "/Orphan" },
+        { label: "Sponsor a Project", path: "/Projects" },
+      ],
+    },
+    { label: "Contact Us", path: "/contact", dropdown: [] },
+  ];
 
-          <p className="text-white">Your charity can save life, donate to save life</p>
-
-          <div className="flex items-center gap-4 text-white">
-            <FaFacebookF size={15} />
-            <FaTwitter size={15} />
-            <FaInstagram size={15} />
-            <FaPinterestP size={15} />
-          </div>
+  return (
+    <div className="w-full shadow-md relative">
+      {/* TOP BAR */}
+      <div className="w-full bg-red-600 text-sm border-b hidden md:flex justify-between items-center px-6 py-2">
+        <div className="flex items-center gap-2 text-white">
+          <HiOutlineMail size={18} />
+          <span>falaheummat2020@gmail.com</span>
         </div>
 
-        {/* MAIN NAVBAR */}
-        <div className="w-full bg-white px-6 py-4 flex justify-between items-center relative">
-          {/* LOGO */}
-          <img src={Logo} alt="Falah e Ummah" className="w-20 h-auto" />
+        <p className="text-white">Your charity can save life, donate to save life</p>
 
-          {/* DESKTOP MENU */}
-          <ul className="hidden lg:flex gap-8 text-gray-700 font-semibold uppercase text-sm relative">
-            {menuItems.map((item, index) => (
-              <li
-                key={index}
-                className="relative cursor-pointer hover:text-red-500"
-                onMouseEnter={() => setDropdown(index)}
-                onMouseLeave={() => setDropdown(null)}
-              >
-                {item.label}
-
-                {/* DROPDOWN */}
-                {item.dropdown.length > 0 && dropdown === index && (
-                  <div className="absolute left-0 mt-3 bg-white shadow-lg rounded-md py-3 px-4 flex flex-col gap-2 text-gray-600 normal-case z-50 min-w-[180px] border">
-                    {item.dropdown.map((sub, i) => (
-                      <p key={i} className="hover:text-red-500 cursor-pointer">
-                        {sub}
-                      </p>
-                    ))}
-                  </div>
-                )}
-              </li>
-            ))}
-          </ul>
-
-          {/* SEARCH ICON */}
-          <FaSearch size={17} className="hidden lg:block text-gray-700 cursor-pointer" />
-
-          {/* MOBILE HAMBURGER */}
-          <div
-            className="lg:hidden flex flex-col gap-[5px] cursor-pointer"
-            onClick={() => setOpen(!open)}
-          >
-            <div className="w-6 h-[3px] bg-black"></div>
-            <div className="w-6 h-[3px] bg-black"></div>
-            <div className="w-6 h-[3px] bg-black"></div>
-          </div>
+        <div className="flex items-center gap-4 text-white">
+          <FaFacebookF size={15} />
+          <FaTwitter size={15} />
+          <FaInstagram size={15} />
+          <FaPinterestP size={15} />
         </div>
-
-        {/* MOBILE MENU */}
-        {open && (
-          <div className="lg:hidden bg-white px-6 pb-4 text-gray-700 font-semibold uppercase text-sm space-y-4">
-            {menuItems.map((item, idx) => (
-              <div key={idx}>
-                <p>{item.label}</p>
-                {item.dropdown.length > 0 && (
-                  <div className="ml-4 mt-2 text-gray-500 normal-case space-y-2">
-                    {item.dropdown.map((sub, s) => (
-                      <p key={s}>{sub}</p>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-
-            <div className="pt-4">
-              <FaSearch size={18} className="text-gray-700 cursor-pointer" />
-            </div>
-          </div>
-        )}
       </div>
-    );
-  };
 
-  export default Navbar;
+      {/* MAIN NAVBAR */}
+      <div className="w-full bg-white px-6 py-4 flex justify-between items-center relative">
+        {/* LOGO */}
+        <Link to="/">
+          <img src={Logo} alt="Falah e Ummah" className="w-20 h-auto" />
+        </Link>
+
+        {/* DESKTOP MENU */}
+        <ul className="hidden lg:flex gap-8 text-gray-700 font-semibold uppercase text-sm relative">
+          {menuItems.map((item, index) => (
+            <li
+              key={index}
+              className="relative cursor-pointer hover:text-red-500"
+              onMouseEnter={() => setDropdown(index)}
+              onMouseLeave={() => setDropdown(null)}
+            >
+              <Link to={item.path}>{item.label}</Link>
+
+              {/* DROPDOWN */}
+              {item.dropdown.length > 0 && dropdown === index && (
+                <div className="absolute left-0 mt-3 bg-white shadow-lg rounded-md py-3 px-4 flex flex-col gap-2 text-gray-600 normal-case z-50 min-w-[180px] border">
+                  {item.dropdown.map((sub, i) => (
+                    <Link key={i} to={sub.path} className="hover:text-red-500 cursor-pointer">
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* SEARCH ICON */}
+        <FaSearch size={17} className="hidden lg:block text-gray-700 cursor-pointer" />
+
+        {/* MOBILE HAMBURGER */}
+        <div
+          className="lg:hidden flex flex-col gap-[5px] cursor-pointer"
+          onClick={() => setOpen(!open)}
+        >
+          <div className="w-6 h-[3px] bg-black"></div>
+          <div className="w-6 h-[3px] bg-black"></div>
+          <div className="w-6 h-[3px] bg-black"></div>
+        </div>
+      </div>
+
+      {/* MOBILE MENU */}
+      {open && (
+        <div className="lg:hidden bg-white px-6 pb-4 text-gray-700 font-semibold uppercase text-sm space-y-4">
+          {menuItems.map((item, idx) => (
+            <div key={idx}>
+              <Link to={item.path}>{item.label}</Link>
+              {item.dropdown.length > 0 && (
+                <div className="ml-4 mt-2 text-gray-500 normal-case space-y-2">
+                  {item.dropdown.map((sub, s) => (
+                    <Link key={s} to={sub.path}>
+                      {sub.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+
+          <div className="pt-4">
+            <FaSearch size={18} className="text-gray-700 cursor-pointer" />
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Navbar;

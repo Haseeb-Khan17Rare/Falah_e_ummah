@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Hero/Home.tsx";
+import About from "./pages/About/About us/About.tsx";
 import Donations from './components/Donations/Donations.tsx';
 import Vision from "./pages/About/Vision/Vision.tsx";
 import Career from "./pages/About/Career/Career.tsx";
@@ -39,10 +40,13 @@ function App() {
         {/* Home Page */}
         <Route path="/" element={<Home />} />
 
+
         {/* Donations Page */}
         <Route path="/Donations" element={<Donations />} />
 
-        <Route path="/Vision" element={<Vision />} />
+        <Route path="/About" element={<About />} />
+
+        <Route path="/vision" element={<Vision />} />
         
         <Route path="/Career" element={<Career />} />
 
@@ -64,8 +68,6 @@ function App() {
 
         <Route path="/Orphan" element={<Orphan />} />
 
-        <Route path="/Projects" element={<Projects />} />
-        
         <Route path="/Projects" element={<Projects />} />
 
         <Route path="/Blood" element={<Blood />} />
