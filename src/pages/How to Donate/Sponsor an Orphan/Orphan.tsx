@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, TrendingUp, Heart, Award, CheckCircle, ArrowRight, CornerDownRight } from 'lucide-react';
+import { Users, TrendingUp, Heart, Award, CheckCircle, CornerDownRight } from 'lucide-react';
 
 // --- 1. Data Definitions (Extracted for clarity) ---
 const STATS_DATA = [
@@ -79,16 +79,6 @@ const HeroStatsSection: React.FC = () => (
  */
 const ChildrenSection: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const visibleChildren = CHILDREN_DATA.slice(currentIndex, currentIndex + 4);
-
-  const nextChild = () => {
-    setCurrentIndex((prev) => Math.min(prev + 1, CHILDREN_DATA.length - 4));
-  };
-
-  const prevChild = () => {
-    setCurrentIndex((prev) => Math.max(prev - 1, 0));
-  };
 
   return (
     <section className="py-20 bg-gray-50">
