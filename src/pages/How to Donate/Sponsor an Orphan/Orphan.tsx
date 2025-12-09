@@ -1,6 +1,3 @@
-//@
-
-import React, { useState } from 'react';
 import { Users, TrendingUp, Heart, Award, CheckCircle, CornerDownRight } from 'lucide-react';
 
 // --- 1. Data Definitions (Extracted for clarity) ---
