@@ -1,3 +1,5 @@
+//@
+
 import React, { useState } from 'react';
 import { Users, TrendingUp, Heart, Award, CheckCircle, CornerDownRight } from 'lucide-react';
 
@@ -78,7 +80,6 @@ const HeroStatsSection: React.FC = () => (
  * Renders the Children Selection Carousel/Grid
  */
 const ChildrenSection: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <section className="py-20 bg-gray-50">
