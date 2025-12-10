@@ -10,35 +10,35 @@ const slides = [
   {
     img: Img1,    // or "./Img1.png" or imported name
     alt: "",
-    title: "Gaza is Being Starved",
-    text: "We’re scaling our response — the need is increasing. Donate now to help more families.",
-    btn1: "Send Life Saving Aid",
-    btn2: "Learn More",
+    title: "Fundraising Event",
+    text: "Uniting Hearts to Support Those in Need",
+    btn1: "Donate Now",
+    btn2: "See Event",
   },
   {
     img: Img2,
     alt: "",
-    title: "Provide Clean Water",
-    text: "Thousands lack access to safe drinking water. Your support can change lives.",
-    btn1: "Donate Water",
-    btn2: "See Projects",
+    title: "Medical Camp ",
+    text: "Free Healthcare for Those Who Need It Most",
+    btn1: "Donate Now",
+    btn2: " See Project",
     bgPosition: "center 40%" // shift image down
   },  
   {
     img: Img3,    // or "./Img1.png" or imported name
     alt: "",
-    title: "Support Orphans",
-    text: "Your kindness provides shelter, education, and hope for orphans.",
-    btn1: "Sponsor Now",
-    btn2: "Read Stories",
+    title:"Dastakri center ",
+    text: "Empowering Women Through Skill and Opportunity",
+    btn1: "Donate now",
+    btn2: "Learn More",
   },
   {
     img: Img4,    // or "./Img1.png" or imported name
     alt: "",
-    title: "Feed Hungry Families",
-    text: "Every donation brings food to families struggling to survive.",
-    btn1: "Feed Families",
-    btn2: "Know More",
+    title: "Winter drive",
+    text: "Help us protect families from the cold",
+    btn1: "Donate now",
+    btn2: "see project",
   },
 ];
 

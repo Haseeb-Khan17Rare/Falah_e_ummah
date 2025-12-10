@@ -148,7 +148,7 @@ const About = () => {
       {/* Programs Section */}
       <div className="max-w-7xl mx-auto px-6 py-20">
         <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 text-center mb-12">
-          Our <span className="text-red-600">Programs</span>
+          Our <span className="text-red-600">Projects</span>
         </h2>
         <div className="grid lg:grid-cols-2 gap-8">
           <div className="bg-gradient-to-br from-white to-red-50 rounded-3xl p-8 shadow-xl border-2 border-red-100 hover:shadow-2xl transition-all duration-300">

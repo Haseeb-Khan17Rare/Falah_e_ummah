@@ -7,7 +7,7 @@ const Causes = () => {
   
         {/* Heading */}
         <div className="text-center max-w-2xl mx-auto mb-12 px-4">
-          <h2 className="text-3xl font-bold">RECENT CAUSES</h2>
+          <h2 className="text-3xl font-bold">OUR PROJECTS</h2>
   
           <p className="mt-4 text-gray-600">
             Lorem ipsum dolor sit amet, vitae mattis vehicula scelerisque suscipit donec,

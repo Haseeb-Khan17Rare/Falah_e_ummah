@@ -1,6 +1,6 @@
 import React from "react";
 import { FaCheckCircle, FaStethoscope, FaEye, FaTooth, FaHeartbeat, FaUserMd, FaPills, FaHandHoldingHeart } from "react-icons/fa";
-
+import Health2 from './Health2.jpeg'
 const serviceIcons = {
   stethoscope: FaStethoscope,
   eye: FaEye,
@@ -94,10 +94,10 @@ const Health: React.FC = () => {
             <div className="flex justify-center">
               <div className="relative rounded-2xl shadow-xl overflow-hidden w-full max-w-md">
                 <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600"
-                  alt="Healthcare professionals at medical camp"
-                  className="w-full h-auto object-cover"
-                />
+                src={Health2}
+                alt="Healthcare professionals at medical camp"
+                className="w-full h-auto object-cover"
+                />
                 {/* Subtle dark gradient overlay for visual depth */}
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900/10 to-transparent"></div>
               </div>
