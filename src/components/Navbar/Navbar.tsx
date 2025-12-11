@@ -21,7 +21,6 @@ const Navbar = () => {
       label: "About Us",
       path: "/about",
       dropdown: [
-        { label: "About", path: "/About" },
         { label: "Vision", path: "/vision" },
         { label: "Mission", path: "/mission" },
         { label: "History", path: "/history" },
@@ -34,7 +33,7 @@ const Navbar = () => {
     },
     {
       label: "Our Projects",
-      path: "/projects",
+      path: "/Our_Projects",
       dropdown: [
         { label: "Social Business Project", path: "/social" },
         { label: "Dastkari Project", path: "/Dastkari" },

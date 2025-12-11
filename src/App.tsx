@@ -30,6 +30,7 @@ import Experience from "./pages/Stories/Volunteer Experience/Experience.tsx";
 import Changed from "./pages/Stories/Whose Lives Have Changed/Changed.tsx";
 import WorkUs from "./pages/About/WhyWorkWithUs/WorkUs.tsx";
 import FUWFVerificationPortal from './pages/FUWP Verification/Verification.tsx'
+import Our_Projects from "./pages/Our Projects/Our Projects/Our _Projects.tsx";
 function App() {  
   return (
     <BrowserRouter>
@@ -97,6 +98,8 @@ function App() {
         <Route path="/Changed" element={<Changed />} />
 
         <Route path="/WorkUs" element={<WorkUs />} />
+
+        <Route path="/Our_Projects" element={<Our_Projects/>} />
 
         <Route path="/FUWFVerificationPortal" element={<FUWFVerificationPortal/>} />
      </Routes>
