@@ -272,16 +272,17 @@ const RamadanProjectPage: React.FC = () => {
             {/* Horizontal Line Connector (Desktop) */}
             <div className="hidden lg:block absolute inset-y-1/2 left-4 right-4 h-1 bg-red-200"></div>
 
-            {MOCK_DATA.operationSteps.map((step, index) => (
-              <div key={step.step} className="text-center relative z-10 p-4">
-                {/* Step Number/Icon */}
-                <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-red-600 text-white font-bold text-3xl shadow-xl border-4 border-white">
-                  {step.step}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-2">{step.title}</h3>
-                <p className="text-sm text-gray-600">{step.description}</p>
-              </div>
-            ))}
+            {MOCK_DATA.operationSteps.map((step) => (
+  <div key={step.step} className="text-center relative z-10 p-4">
+    {/* Step Number/Icon */}
+    <div className="w-16 h-16 mx-auto mb-4 flex items-center justify-center rounded-full bg-red-600 text-white font-bold text-3xl shadow-xl border-4 border-white">
+      {step.step}
+    </div>
+    <h3 className="text-xl font-semibold text-gray-800 mb-2">{step.title}</h3>
+    <p className="text-sm text-gray-600">{step.description}</p>
+  </div>
+))}
+
           </div>
         </div>
       </section>
