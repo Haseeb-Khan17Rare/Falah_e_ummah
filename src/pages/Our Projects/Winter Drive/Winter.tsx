@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { 
-    Heart, Users, Package, MapPin, ShoppingCart, FileText, CheckCircle, ArrowRight, Truck, 
-    BookOpen, Gift, Smile, List, Compass, Receipt, CreditCard, Shirt, Home, Shield, DollarSign,
+    Heart, Package, MapPin, ShoppingCart, FileText,  ArrowRight, Truck, 
+    BookOpen, Gift, Smile, List, Compass,   Shirt, Home, Shield, DollarSign,
     Sun, Tally2, Layers, Clipboard, Globe, Video,Monitor
 } from 'lucide-react';
 
@@ -66,7 +66,7 @@ const HumanizedImpactDashboard = () => {
 
   // --- Utility Components ---
 
-  const SectionHeader = ({ title, subtitle, icon: Icon }) => (
+  const SectionHeader: React.FC<{ title: string; subtitle: string; icon: any }> = ({ title, subtitle, icon: Icon }) => (
     <div className="mb-10 text-center">
       <Icon className="w-12 h-12 mx-auto mb-3 text-red-700" />
       <p className="text-xl font-semibold uppercase text-red-700 mb-1">{subtitle}</p>
@@ -74,7 +74,13 @@ const HumanizedImpactDashboard = () => {
     </div>
   );
 
-  const ImpactCounter = ({ number, label, icon: Icon }) => (
+  type ImpactCounterProps = {
+    number: string | number;
+    label: string;
+    icon: React.ElementType; // lowercase
+  };
+  
+  const ImpactCounter: React.FC<ImpactCounterProps> = ({ number, label, icon: Icon }) => (
     <div className="p-4 text-center rounded-xl border-2 border-red-300 bg-red-50 shadow-md">
       <div className="w-16 h-16 mx-auto mb-2 bg-red-700 rounded-full flex items-center justify-center flex-shrink-0">
         <Icon className="w-8 h-8 text-white" />
@@ -84,7 +90,13 @@ const HumanizedImpactDashboard = () => {
     </div>
   );
 
-  const PriceCard = ({ amount, description, highlight = false }) => (
+  type PriceCardProps = {
+    amount: number;
+    description: string;
+    highlight?: boolean;
+  };
+
+  const PriceCard: React.FC<PriceCardProps> = ({ amount, description, highlight = false }) => (
     <div className={`p-5 text-center rounded-xl border-2 transition h-full ${highlight ? 'bg-red-700 text-white border-red-700 shadow-xl scale-105' : 'bg-white text-red-700 border-red-300 hover:bg-red-50'}`}>
         <p className={`text-3xl font-black mb-1 ${highlight ? 'text-white' : 'text-red-700'}`}>Rs. {amount.toLocaleString()}</p>
         <p className={`text-sm font-semibold uppercase ${highlight ? 'text-red-300' : 'text-gray-600'}`}>{description}</p>
