@@ -53,6 +53,7 @@ const Navbar = () => {
         { label: "Blogs", path: "/stories/blogs" },
         { label: "Stories of people whose lives have changed", path: "/stories/lives" },
         { label: "Volunteer Experiences", path: "/stories/volunteer" },
+        { label: "DonationJar", path: "/stories/DonationJar" },
       ],
     },
     {
