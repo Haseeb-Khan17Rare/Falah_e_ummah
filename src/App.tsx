@@ -20,9 +20,9 @@ import Dastkari from "./pages/Our Projects/Dastkari/Dastkari.tsx";
 import Education from "./pages/Our Projects/Education/Education.tsx";
 import Health from "./pages/Our Projects/Health/Health.tsx";
 import Natural from "./pages/Our Projects/Natural Disaster/Natural.tsx";
-import Ramadan from "./pages/Our Projects/Ramadan/Ramadan.tsx";
+import RamadanProjectPage from "./pages/Our Projects/Ramadan/Ramadan.tsx";
 import Social from "./pages/Our Projects/Social Buisness/Social.tsx";
-import Winter from "./pages/Our Projects/Winter Drive/Winter.tsx";
+import HumanizedImpactDashboard from "./pages/Our Projects/Winter Drive/Winter.tsx";
 import Blog from "./pages/Stories/Blogs/Blogs.tsx";
 import Live from "./pages/Stories/Live Impact Tracker/Live.tsx";
 import People from "./pages/Stories/Stories of People/People.tsx";
@@ -82,11 +82,12 @@ function App() {
 
         <Route path="/Natural" element={<Natural />} />
 
-        <Route path="/Ramadan" element={<Ramadan />} />
+        <Route path="/stories/ramadan" element={<RamadanProjectPage />} />
+
 
         <Route path="/Social" element={<Social />} />
 
-        <Route path="/Winter" element={<Winter />} />
+        <Route path="/projects/winter-drive" element={<HumanizedImpactDashboard />} />
         
         <Route path="/Blog" element={<Blog />} />
 
