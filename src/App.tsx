@@ -103,16 +103,15 @@ function App() {
         <Route path="/Our_Projects" element={<Our_Projects/>} />
 
         <Route
-          path="/stories/DonationJar"
-          element={
-            <DonationJar
-              title="Winter Donation Drive"
-              initialGoal={500000}
-              initialRaised={120000}
-              theme="green"
-            />
-          }
-        />
+  path="/stories/DonationJar"
+  element={
+    <DonationJar
+      goalAmount={500000}
+      initialRaisedAmount={120000}
+    />
+  }
+/>
+
 
 
         <Route path="/FUWFVerificationPortal" element={<FUWFVerificationPortal/>} />
