@@ -1,4 +1,4 @@
-
+import React from 'react';
 import Testonomials from '../Testonomials/Testonomials'
 import { FaHandHoldingHeart, FaUsers, FaUniversity, FaGift, FaRedo } from "react-icons/fa";
 import Image from '../DonationsHelp/DonationsHelp.jpg'
@@ -86,10 +86,10 @@ const DonationsHelp = () => {
   );
 };
 
-interface HelpCardProps {
-  icon: JSX.Element;
-  text: string;
-}
+  interface HelpCardProps {
+    icon: React.ReactElement;
+    text: string;
+  }
 const HelpCard: React.FC<HelpCardProps> = ({ icon, text }) => {
   return (
     <div className="bg-white p-6 rounded shadow flex items-center justify-between">
