@@ -1,86 +1,72 @@
-import React from "react";
-import Child2 from './Child2.jpg'
-import Causes from "../Causes/Causes";
-const VolunteerSection: React.FC = () => {
+import { FaSeedling, FaWater, FaHandsHelping, FaBullhorn, FaLeaf } from "react-icons/fa";
+import Image from "./Children.jpg"; // replace with your image
+
+const Causes = () => {
   return (
-    <>
-    <section className="w-full flex flex-col md:flex-row min-h-screen">
-      {/* LEFT SIDE IMAGE */}
-      <div className="w-full md:w-1/2 h-[50vh] md:h-auto">
-        <img
-          src={Child2}
-          alt="Child smiling in water"
-          className="w-full h-full object-cover"
-        />
-      </div>
+    <section className="bg-gray-100 py-14 px-6 md:px-20">
+      
+      {/* TOP GRID */}
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
 
-      {/* RIGHT SIDE FORM */}
-      <div className="w-full md:w-1/2 bg-red-500 text-white p-10 md:p-16 flex flex-col justify-center">
-        <p className="italic text-lg">give your hand</p>
-        <h1 className="text-4xl font-bold mt-2 mb-10">
-          BECOME A VOLUNTEER
-        </h1>
+        {/* LEFT BIG CARD */}
+        <div className="lg:col-span-2 bg-white rounded shadow">
+          <img src={Image} alt="" className="w-full h-64 object-cover rounded-t" />
 
-        {/* FORM */}
-        <form className="space-y-8">
-          {/* ROW 1 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <label className="block text-sm mb-2">First Name</label>
-              <input
-                type="text"
-                className="w-full bg-transparent border-b border-white focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="block text-sm mb-2">Last Name</label>
-              <input
-                type="text"
-                className="w-full bg-transparent border-b border-white focus:outline-none"
-              />
-            </div>
+          <div className="p-6">
+            <p className="text-gray-600 mb-4">
+              We work with people who give their all to improve their living conditions.
+              We support them with sustainable concepts and strong partnerships.
+            </p>
+
+            <button className="bg-green-500 hover:bg-green-600 text-white px-5 py-2 rounded-full font-semibold">
+              Read more →
+            </button>
+          </div>
+        </div>
+
+        {/* RIGHT SIDE CARDS */}
+        <div className="flex flex-col gap-6">
+
+          <div className="bg-white rounded shadow p-6 flex items-center gap-4">
+            <FaLeaf className="text-green-500 text-3xl" />
+            <p className="font-semibold">End Hunger →</p>
           </div>
 
-          {/* ROW 2 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <label className="block text-sm mb-2">E-mail</label>
-              <input
-                type="email"
-                className="w-full bg-transparent border-b border-white focus:outline-none"
-              />
-            </div>
-            <div>
-              <label className="block text-sm mb-2">City</label>
-              <input
-                type="text"
-                className="w-full bg-transparent border-b border-white focus:outline-none"
-              />
-            </div>
+          <div className="bg-white rounded shadow p-6 flex items-center gap-4">
+            <FaWater className="text-blue-500 text-3xl" />
+            <p className="font-semibold">Water, Sanitation & Hygiene →</p>
           </div>
 
-          {/* BUTTON */}
-          <button
-            type="submit"
-            className="bg-black text-white font-bold px-6 py-3 rounded shadow hover:bg-red-500 transition"
-          >
-            SUBMIT NOW
-          </button>
-
-          {/* CHECKBOX SECTION */}
-          <label className="flex items-start gap-3 text-sm leading-5 mt-4">
-            <input type="checkbox" className="mt-1" />
-            <span>
-              Quam vulputate vehicula. Interdum blandit a aenean rhoncus,
-              faucibus amet nullam a faucibus. Iaculis vesti
-            </span>
-          </label>
-        </form>
+        </div>
       </div>
+
+      {/* BOTTOM CARDS */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-8">
+
+        <div className="bg-white rounded shadow p-6 text-center">
+          <FaSeedling className="text-green-600 text-3xl mx-auto mb-3" />
+          <p className="font-semibold">Agriculture →</p>
+        </div>
+
+        <div className="bg-white rounded shadow p-6 text-center">
+          <FaLeaf className="text-orange-500 text-3xl mx-auto mb-3" />
+          <p className="font-semibold">Climate Crisis →</p>
+        </div>
+
+        <div className="bg-white rounded shadow p-6 text-center">
+          <FaBullhorn className="text-yellow-500 text-3xl mx-auto mb-3" />
+          <p className="font-semibold">Civil Society →</p>
+        </div>
+
+        <div className="bg-white rounded shadow p-6 text-center">
+          <FaHandsHelping className="text-red-500 text-3xl mx-auto mb-3" />
+          <p className="font-semibold">Humanitarian Assistance →</p>
+        </div>
+
+      </div>
+    
     </section>
-    <Causes/>
-    </>
   );
 };
 
-export default VolunteerSection;
+export default Causes;

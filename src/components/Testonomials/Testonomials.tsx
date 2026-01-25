@@ -1,134 +1,107 @@
+import BlogSection from '../BlogSection/BlogSection';
+
 import React, { useState } from 'react';
 import { StarIcon } from '@heroicons/react/20/solid';
-import { StarIcon as StarIconOutline } from '@heroicons/react/24/outline';
+import { 
+  PencilSquareIcon, 
+  ArrowUpRightIcon, 
+  AdjustmentsHorizontalIcon,
+  CheckBadgeIcon
+} from '@heroicons/react/24/outline';
 
-import BlogSection from "../BlogSection/BlogSection";   
-
-interface ReviewData {
-  rating: number;
-  feedback: string;
-}
-
-/**
- * A professional, modern review and rating section using a distinct card layout
- * and the Red/White color scheme.
- */
 const ProjectReviewSection: React.FC = () => {
-  const [reviewData, setReviewData] = useState<ReviewData>({ rating: 0, feedback: '' });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [activeTab, setActiveTab] = useState('relevant');
 
-  const primaryColorClass = 'text-red-600';
-  const primaryBgClass = 'bg-red-600 hover:bg-red-700';
-  const primaryBgLightClass = 'bg-red-50';
-
-  const handleRatingChange = (newRating: number) => {
-    setReviewData({ ...reviewData, rating: newRating });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Logic to send reviewData to an API would go here.
-    console.log('Review Submitted:', reviewData); 
-    setIsSubmitted(true);
-  };
-
-  const renderStars = () => {
-    const stars = [];
-    for (let i = 1; i <= 5; i++) {
-      const isFilled = i <= reviewData.rating;
-      const Star = isFilled ? StarIcon : StarIconOutline;
-      
-      stars.push(
-        <Star
-          key={i}
-          className={`h-7 w-7 cursor-pointer transition duration-150 ${
-            isFilled ? primaryColorClass : 'text-gray-300 hover:text-red-400'
-          }`}
-          onClick={() => handleRatingChange(i)}
-          aria-label={`Give ${i} stars`}
-        />
-      );
-    }
-    return stars;
-  };
-
-  if (isSubmitted) {
-    return (
-      <div className={`max-w-3xl mx-auto mt-12 mb-20 ${primaryBgLightClass} p-8 rounded-xl text-center border-t-4 border-red-600 shadow-xl`}>
-        <h3 className={`text-2xl font-bold ${primaryColorClass} mb-2`}>Thank You for your Valuable Feedback! 🙏</h3>
-        <p className="text-gray-700">Your review helps us maintain transparency and improve our outreach.</p>
-        <p className="mt-4 text-sm text-gray-500">You rated us **{reviewData.rating} out of 5 stars**.</p>
-      </div>
-    );
-  }
+  const stats = [
+    { label: 'Average Rating', value: '4.9', sub: 'Out of 5' },
+    { label: 'Response Rate', value: '98%', sub: 'Within 24hrs' },
+    { label: 'Recommendations', value: '1.2k', sub: 'Verified users' },
+  ];
 
   return (
-    <section className="py-16 sm:py-20 bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-12 pb-6">
+    <section className="bg-[#FAF9F6] py-24 px-6 lg:px-8 font-sans">
+      <div className="max-w-6xl mx-auto">
         
-        {/* --- Header --- */}
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-extrabold text-gray-800 border-b-2 border-red-300 pb-3 inline-block">
-            SHARE YOUR EXPERIENCE
-          </h2>
-          <p className="mt-3 text-lg text-gray-600">Your trust powers our mission. Leave a rating and review below.</p>
+        {/* --- Top Tier: Impact Metrics --- */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mb-16 rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
+          {stats.map((stat, i) => (
+            <div key={i} className="bg-white p-10 flex flex-col items-center border-r last:border-r-0 border-gray-100">
+              <span className="text-gray-500 text-xs uppercase tracking-widest font-bold mb-2">{stat.label}</span>
+              <span className="text-5xl font-light text-gray-900 mb-1">{stat.value}</span>
+              <span className="text-gray-400 text-sm">{stat.sub}</span>
+            </div>
+          ))}
         </div>
 
-        {/* --- Review Card Container --- */}
-        <div className={`bg-white shadow-2xl rounded-2xl p-6 md:p-10 border border-red-100`}>
-          <form onSubmit={handleSubmit}>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-              
-              {/* --- Rating Selector (Left Column) --- */}
-              <div className="md:col-span-1 text-center md:border-r border-red-100 md:pr-8 pb-6 md:pb-0">
-                <h3 className={`text-xl font-semibold ${primaryColorClass} mb-3`}>
-                  Rate Our Impact
-                </h3>
-                <div className="flex justify-center space-x-1 mb-2">
-                  {renderStars()}
+        {/* --- Mid Tier: Header & Filters --- */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
+          <div>
+            <h2 className="text-4xl font-medium tracking-tight text-gray-900">User Testimonials</h2>
+            <p className="mt-2 text-gray-500">Real feedback from our global community.</p>
+          </div>
+          
+          <div className="flex items-center gap-4 w-full lg:w-auto">
+            <div className="flex bg-gray-100 p-1 rounded-full text-sm font-medium">
+              {['relevant', 'recent'].map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-6 py-2 rounded-full capitalize transition-all ${
+                    activeTab === tab ? 'bg-white text-gray-900 shadow-sm' : 'text-gray-500'
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+            </div>
+            <button className="flex items-center gap-2 bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition-all shadow-lg shadow-red-200">
+              <PencilSquareIcon className="h-5 w-5" />
+              <span>Share Review</span>
+            </button>
+          </div>
+        </div>
+
+        {/* --- Bottom Tier: The Feed --- */}
+        <div className="space-y-6">
+          {[1, 2].map((review) => (
+            <div key={review} className="group bg-white rounded-[2.5rem] p-8 md:p-12 border border-gray-100 hover:border-red-200 transition-all duration-500">
+              <div className="flex flex-col md:flex-row gap-8">
+                {/* Author Info */}
+                <div className="md:w-1/4">
+                  <div className="flex items-center gap-1 mb-4">
+                    {[...Array(5)].map((_, i) => (
+                      <StarIcon key={i} className="h-4 w-4 text-red-500" />
+                    ))}
+                  </div>
+                  <h4 className="font-bold text-gray-900 text-lg flex items-center gap-2">
+                    Jameson Locke <CheckBadgeIcon className="h-5 w-5 text-blue-500" />
+                  </h4>
+                  <p className="text-gray-400 text-sm mb-4">Executive Director</p>
+                  <span className="bg-green-50 text-green-700 text-[10px] uppercase tracking-widest font-black px-3 py-1 rounded-full border border-green-100">
+                    Verified Purchase
+                  </span>
                 </div>
-                <p className={`text-2xl font-bold ${primaryColorClass}`}>{reviewData.rating} / 5</p>
-                {reviewData.rating === 0 && (
-                  <p className="mt-1 text-sm text-red-500">Please click a star to begin.</p>
-                )}
+
+                {/* Content */}
+                <div className="md:w-3/4">
+                  <p className="text-xl text-gray-700 leading-relaxed font-light italic">
+                    "The integration process was seamless. What impressed me most was the granular level of reporting available. It’s not just a tool; it’s a strategic advantage for our outreach team."
+                  </p>
+                  <div className="mt-8 flex items-center justify-between">
+                    <span className="text-gray-400 text-sm">Published Oct 24, 2025</span>
+                    <button className="text-gray-400 hover:text-red-600 flex items-center gap-2 text-sm font-medium transition-colors">
+                      Helpful? (24) <ArrowUpRightIcon className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
               </div>
-
-              {/* --- Feedback Form (Right Columns) --- */}
-              <div className="md:col-span-2">
-                <label htmlFor="feedback" className="block text-sm font-medium text-gray-700 mb-2">
-                  Tell us about your experience:
-                </label>
-                <textarea
-                  id="feedback"
-                  name="feedback"
-                  rows={5}
-                  value={reviewData.feedback}
-                  onChange={(e) => setReviewData({ ...reviewData, feedback: e.target.value })}
-                  className="block w-full rounded-lg border border-gray-300 shadow-sm focus:border-red-500 focus:ring-red-500 p-4 transition text-gray-700"
-                  placeholder="Your feedback is confidential and helps us grow..."
-                />
-              </div>
-
             </div>
-            
-            {/* --- Submit Button (Full Width) --- */}
-            <div className="mt-8 pt-6 border-t border-red-100 text-center">
-              <button
-                type="submit"
-                disabled={reviewData.rating === 0}
-                className={`w-full md:w-1/2 lg:w-1/3 py-3 px-6 border border-transparent rounded-full shadow-lg text-lg font-medium text-white ${primaryBgClass} focus:outline-none focus:ring-4 focus:ring-red-300 disabled:opacity-50 transition duration-200 uppercase tracking-wider`}
-              >
-                Submit Review
-              </button>
-            </div>
-
-          </form>
+          ))}
         </div>
+
       </div>
       <BlogSection/>
     </section>
-    
   );
 };
 

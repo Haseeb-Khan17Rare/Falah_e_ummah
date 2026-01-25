@@ -1,5 +1,4 @@
-import VolunteerSection from '../VolunteerSection/VolunteerSection';
-
+import Causes from '../Causes/Causes';
 import Children from './Children.jpg';
 
 // React Icons
@@ -9,6 +8,15 @@ const Donations = () => {
   return (
     <>
       <section className="w-full py-16 px-6 md:px-20 bg-white">
+
+      <div className="text-center mb-14">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
+          Make a Skillful Nation, not a Nation of Beggars
+        </h1>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Your support helps us provide food, shelter, and education to children in need.
+        </p>
+      </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
 
           {/* LEFT SIDE */}
@@ -77,9 +85,8 @@ const Donations = () => {
           </div>
 
         </div>
+        <Causes/>
       </section>
-
-      <VolunteerSection />
     </>
   );
 };
