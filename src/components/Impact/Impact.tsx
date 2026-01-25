@@ -1,4 +1,4 @@
-import DonationsHelp from "../DonationsHelp/DonationsHelp";
+import DonationsHelp from "../DonationsHelp/DonationsHelp.tsx";
 import { FaWallet, FaUsers, FaRunning } from "react-icons/fa";
 
 const Impact = () => {

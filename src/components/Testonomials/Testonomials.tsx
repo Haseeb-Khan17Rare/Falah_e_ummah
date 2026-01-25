@@ -5,7 +5,6 @@ import { StarIcon } from '@heroicons/react/20/solid';
 import { 
   PencilSquareIcon, 
   ArrowUpRightIcon, 
-  AdjustmentsHorizontalIcon,
   CheckBadgeIcon
 } from '@heroicons/react/24/outline';
 

@@ -1,4 +1,4 @@
-import Impact from '../Impact/Impact.jsx'
+import Impact from '../Impact/Impact';
 import Image from '../Causes/Causes.jpg'
 import { Heart, GraduationCap, Droplet, Snowflake, AlertTriangle, HandHeart, Hammer, Moon } from "lucide-react";
 
