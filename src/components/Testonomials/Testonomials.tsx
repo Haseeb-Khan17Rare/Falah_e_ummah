@@ -22,7 +22,7 @@ const ProjectReviewSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         
         {/* --- Top Tier: Impact Metrics --- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-1 mb-16 rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
+        <div className="grid grid-cols-1  gap-4 mb-16 rounded-3xl overflow-hidden border border-gray-200 shadow-sm">
           {stats.map((stat, i) => (
             <div key={i} className="bg-white p-10 flex flex-col items-center border-r last:border-r-0 border-gray-100">
               <span className="text-gray-500 text-xs uppercase tracking-widest font-bold mb-2">{stat.label}</span>
@@ -33,7 +33,7 @@ const ProjectReviewSection: React.FC = () => {
         </div>
 
         {/* --- Mid Tier: Header & Filters --- */}
-        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 mb-12">
+        <div className="flex flex-col  justify-between items-center gap-8 mb-12">
           <div>
             <h2 className="text-4xl font-medium tracking-tight text-gray-900">User Testimonials</h2>
             <p className="mt-2 text-gray-500">Real feedback from our global community.</p>
@@ -64,9 +64,9 @@ const ProjectReviewSection: React.FC = () => {
         <div className="space-y-6">
           {[1, 2].map((review) => (
             <div key={review} className="group bg-white rounded-[2.5rem] p-8 md:p-12 border border-gray-100 hover:border-red-200 transition-all duration-500">
-              <div className="flex flex-col md:flex-row gap-8">
+              <div className="flex flex-col gap-6">
                 {/* Author Info */}
-                <div className="md:w-1/4">
+                <div>
                   <div className="flex items-center gap-1 mb-4">
                     {[...Array(5)].map((_, i) => (
                       <StarIcon key={i} className="h-4 w-4 text-red-500" />
@@ -82,7 +82,7 @@ const ProjectReviewSection: React.FC = () => {
                 </div>
 
                 {/* Content */}
-                <div className="md:w-3/4">
+                <div>
                   <p className="text-xl text-gray-700 leading-relaxed font-light italic">
                     "The integration process was seamless. What impressed me most was the granular level of reporting available. It’s not just a tool; it’s a strategic advantage for our outreach team."
                   </p>

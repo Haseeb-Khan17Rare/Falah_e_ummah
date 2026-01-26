@@ -60,7 +60,7 @@ const blogPosts: BlogPost[] = [
 export default function BlogSection() {
   return (
     <>
-      <section className="py-16 bg-white">
+      <section className="mt-20 py-16 bg-white">
         <div className="max-w-6xl mx-auto px-4 text-center">
 
           {/* TITLE */}

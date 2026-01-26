@@ -85,7 +85,7 @@ function App() {
         <Route path="/ramadan" element={<RamadanProjectPage />} />
 
 
-        <Route path="/Social" element={<Social />} />
+        <Route path="/social" element={<Social />} />
 
         <Route path="/winter" element={<HumanizedImpactDashboard />} />
         
