@@ -1,3 +1,16 @@
+type Project = {
+  name: string;
+  slug: string;
+  icon: React.ComponentType<any>; // for lucide-react icons
+  color: string;
+};
+
+type ProjectCardProps = {
+  project: Project;
+};
+
+
+
 import { useNavigate } from "react-router-dom";
 import Impact from '../Impact/Impact';
 import Image from '../Causes/Causes.jpg';
@@ -7,7 +20,7 @@ const Causes = () => {
   const navigate = useNavigate();
 
   // Make sure slug matches the URL path exactly
-  const projects = [
+  const projects : Project[] = [
     { name: "Social Business Project", slug: "social", icon: HandHeart, color: "bg-blue-500" },
     { name: "Dastkari Project", slug: "dastkari", icon: Hammer, color: "bg-orange-600" },
     { name: "Education Project", slug: "education", icon: GraduationCap, color: "bg-green-600" },
@@ -19,7 +32,7 @@ const Causes = () => {
   ];
 
   // Reusable card component
-  const ProjectCard = ({ project }) => {
+  const ProjectCard = ({ project }: ProjectCardProps) => {
     const Icon = project.icon;
     return (
       <div
