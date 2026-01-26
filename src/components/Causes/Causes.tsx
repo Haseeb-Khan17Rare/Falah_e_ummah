@@ -1,26 +1,45 @@
-type Project = {
-  name: string;
-  slug: string;
-  icon: React.ComponentType<any>; // for lucide-react icons
-  color: string;
-};
-
-type ProjectCardProps = {
-  project: Project;
-};
-
-
-
 import { useNavigate } from "react-router-dom";
 import Impact from '../Impact/Impact';
 import Image from '../Causes/Causes.jpg';
 import { Heart, GraduationCap, Droplet, Snowflake, AlertTriangle, HandHeart, Hammer, Moon } from "lucide-react";
 
+type Project = {
+  name: string;
+  slug: string;
+  icon: React.ComponentType<any>;
+  color: string;
+};
+
+type ProjectCardProps = {
+  project: Project;
+  navigate: ReturnType<typeof useNavigate>; // pass navigate
+};
+
+// Move ProjectCard outside
+const ProjectCard = ({ project, navigate }: ProjectCardProps) => {
+  const Icon = project.icon;
+  return (
+    <div
+      onClick={() => navigate(`/${project.slug}`)}
+      className="bg-white rounded-lg shadow p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:shadow-xl transition-shadow"
+      role="button"
+      aria-label={`Go to ${project.name}`}
+    >
+      <div className={`w-16 h-16 ${project.color} rounded-full flex items-center justify-center mb-4`}>
+        <Icon className="text-white w-8 h-8" />
+      </div>
+      <p className="font-semibold text-gray-800 flex items-center gap-2">
+        {project.name}
+        <span className={project.color.replace('bg-', 'text-')}>→</span>
+      </p>
+    </div>
+  );
+};
+
 const Causes = () => {
   const navigate = useNavigate();
 
-  // Make sure slug matches the URL path exactly
-  const projects : Project[] = [
+  const projects: Project[] = [
     { name: "Social Business Project", slug: "social", icon: HandHeart, color: "bg-blue-500" },
     { name: "Dastkari Project", slug: "dastkari", icon: Hammer, color: "bg-orange-600" },
     { name: "Education Project", slug: "education", icon: GraduationCap, color: "bg-green-600" },
@@ -31,33 +50,10 @@ const Causes = () => {
     { name: "Ramadan Projects", slug: "ramadan", icon: Moon, color: "bg-green-500" }
   ];
 
-  // Reusable card component
-  const ProjectCard = ({ project }: ProjectCardProps) => {
-    const Icon = project.icon;
-    return (
-      <div
-        onClick={() => navigate(`/${project.slug}`)}
-        className="bg-white rounded-lg shadow p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:shadow-xl transition-shadow"
-        role="button"
-        aria-label={`Go to ${project.name}`}
-      >
-        <div className={`w-16 h-16 ${project.color} rounded-full flex items-center justify-center mb-4`}>
-          <Icon className="text-white w-8 h-8" />
-        </div>
-        <p className="font-semibold text-gray-800 flex items-center gap-2">
-          {project.name}
-          <span className={project.color.replace('bg-', 'text-')}>→</span>
-        </p>
-      </div>
-    );
-  };
-
   return (
     <section className="py-32 px-6 md:px-20">
-
       {/* TOP GRID */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-
         {/* LEFT BIG CARD */}
         <div
           onClick={() => navigate(`/${projects[0].slug}`)}
@@ -85,7 +81,7 @@ const Causes = () => {
         {/* RIGHT SIDE TOP CARDS */}
         <div className="flex flex-col gap-6">
           {projects.slice(2, 4).map((project) => (
-            <ProjectCard key={project.slug} project={project} />
+            <ProjectCard key={project.slug} project={project} navigate={navigate} />
           ))}
         </div>
       </div>
@@ -93,7 +89,7 @@ const Causes = () => {
       {/* BOTTOM CARDS */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
+          <ProjectCard key={project.slug} project={project} navigate={navigate} />
         ))}
       </div>
 
