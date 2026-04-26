@@ -1,6 +1,6 @@
 import DonationsHelp from "../DonationsHelp/DonationsHelp.tsx";
 import { FaWallet, FaUsers, FaRunning } from "react-icons/fa";
-
+import Dollar from "../Impact/Dollar.png"
 const Impact = () => {
   return (
     <section className="w-full min-h-screen flex flex-col justify-center py-20">
@@ -12,13 +12,20 @@ const Impact = () => {
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-16 text-center">
-          <div className="group transition-transform hover:scale-105">
-            <FaWallet className="text-5xl mx-auto mb-6 text-red-500" />
-            <h3 className="text-4xl font-black text-gray-900">4x</h3>
-            <p className="mt-4 text-gray-600 leading-relaxed uppercase tracking-wide text-xs font-bold">
-              We quadruple your donation <br /> through grants →
-            </p>
-          </div>
+        <div className="group transition-transform hover:scale-105 text-center">
+  {/* The Wallet Icon */}
+  <FaWallet className="text-5xl mx-auto mb-6 text-red-500" />
+
+  {/* The Dollar Image (Centered) */}
+  <div className="flex justify-center mb-4">
+    <img src={Dollar} alt="Dollar Icon" className="h-10 w-10 object-contain" />
+  </div>
+
+  {/* The Description Text */}
+  <p className="text-gray-600 leading-relaxed uppercase tracking-wide text-xs font-bold max-w-[200px] mx-auto">
+    We transform your donation into a sustainable sadqaejaria
+  </p>
+</div>
 
           <div className="group transition-transform hover:scale-105">
             <FaUsers className="text-5xl mx-auto mb-6 text-red-500" />
@@ -30,9 +37,9 @@ const Impact = () => {
 
           <div className="group transition-transform hover:scale-105">
             <FaRunning className="text-5xl mx-auto mb-6 text-red-500" />
-            <h3 className="text-4xl font-black text-gray-900">18.7m</h3>
+            <h3 className="text-4xl font-black text-gray-900">19.9m</h3>
             <p className="mt-4 text-gray-600 leading-relaxed uppercase tracking-wide text-xs font-bold">
-              people supported in 2024 →
+              How much money raised till date
             </p>
           </div>
         </div>

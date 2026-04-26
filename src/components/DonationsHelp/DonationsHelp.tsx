@@ -37,12 +37,12 @@ const DonationsHelp = () => {
 
           {/* AMOUNT BUTTONS */}
           <div className="grid grid-cols-4 gap-4 mb-6">
-            <button className="border py-2">50€</button>
-            <button className="border py-2">75€</button>
+            <button className="border py-2">100PKR</button>
+            <button className="border py-2">500PKR</button>
             <button className="border py-2 border-red-500 text-red-500 font-semibold">
-              100€
+              1000PKR
             </button>
-            <button className="border py-2">250€</button>
+            <button className="border py-2">5000PKR</button>
           </div>
 
           {/* CUSTOM AMOUNT */}

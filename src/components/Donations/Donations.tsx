@@ -41,7 +41,7 @@ const Donations = () => {
           {/* LEFT: REFINED LIST */}
           <div className="space-y-12">
             <div>
-              <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">How You Can Help</h2>
+              <h2 className="text-4xl font-bold text-slate-900 mb-4 tracking-tight">How Can You Help</h2>
               <p className="text-slate-500 text-lg">Choose a way to make a lasting impact today.</p>
             </div>
 
@@ -78,7 +78,7 @@ const Donations = () => {
               </div>
 
               <div className="p-6 md:p-8">
-                <h3 className="font-black text-2xl text-slate-900 uppercase tracking-tight mb-4">Help for Homeless Child</h3>
+                <h3 className="font-black text-2xl text-slate-900 uppercase tracking-tight mb-4">Money Raised For Eid Project</h3>
                 
                 <div className="flex justify-between items-end mb-6">
                   <div className="space-y-1">
